@@ -4,7 +4,7 @@
 BIN_DIR = bin
 
 # Targets
-all: windows_x86_64  linux_x86_64  
+all: linux_arm64
 
 windows_x86_64:
 	@echo "Building Windows x86_64 binary..."
@@ -21,15 +21,18 @@ linux_x86_64:
 	@mkdir -p $(BIN_DIR)
 	@GOOS=linux GOARCH=amd64 go build -o $(BIN_DIR)/nrlnanny_linux_x86_64
 
-# linux_arm64:
-# 	@echo "Building Linux ARM64 binary..."
-# 	@mkdir -p $(BIN_DIR)
-# 	@GOOS=linux GOARCH=arm64 go build -o $(BIN_DIR)/nrlnanny_linux_arm64
+linux_arm64:
+	@echo "Building Linux ARM64 binary..."
+	@mkdir -p $(BIN_DIR)
+	@GOOS=linux GOARCH=arm64 go build -o $(BIN_DIR)/nrlnanny_linux_arm64
 
 # linux_arm32:
 # 	@echo "Building Linux ARM32 binary..."
 # 	@mkdir -p $(BIN_DIR)
 # 	@GOOS=linux GOARCH=arm go build -o $(BIN_DIR)/nrlnanny_linux_arm32
+
+install:
+	cp $(BIN_DIR)/nrlnanny_linux_arm64 /nrlnanny/nrlnanny
 
 clean:
 	@echo "Cleaning up..."
