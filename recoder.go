@@ -142,7 +142,7 @@ func (r *Recorder) saveCurrentRecord(duration time.Duration) {
 	// 构造文件名
 	startTimeStr := r.recordStartTime.Format("2006-01-02_150405") // HHMMSS
 	durationSeconds := int(duration.Seconds())
-	filename := fmt.Sprintf("%s_%s_%ds.wav", r.speakerCallsign, startTimeStr, durationSeconds)
+	filename := fmt.Sprintf("%s_%s_%ds.wav", startTimeStr, r.speakerCallsign, durationSeconds)
 	filePath := filepath.Join(dayOutputDir, filename)
 
 	log.Printf("[%s] 保存录音到: %s (时长:%d秒)\n", r.speakerCallsign, filePath, durationSeconds)
