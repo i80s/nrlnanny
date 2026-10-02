@@ -30,8 +30,8 @@ func parseTimeFromFilename(filename string) (time.Time, error) {
 	if len(parts) < 3 {
 		return time.Time{}, fmt.Errorf("格式错误: %s", filename)
 	}
-	datePart := parts[1]
-	timePart := parts[2]
+	datePart := parts[0]
+	timePart := parts[1]
 	dtStr := datePart + " " + timePart[:2] + ":" + timePart[2:4] + ":" + timePart[4:6]
 	return time.Parse("2006-01-02 15:04:05", dtStr)
 }
