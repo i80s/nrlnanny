@@ -32,7 +32,7 @@ linux_arm64:
 # 	@GOOS=linux GOARCH=arm go build -o $(BIN_DIR)/nrlnanny_linux_arm32
 
 install:
-	cp $(BIN_DIR)/nrlnanny_linux_arm64 /nrlnanny/nrlnanny
+	cp $(BIN_DIR)/nrlnanny_linux_arm64 /opt/nrlnanny/nrlnanny
 
 clean:
 	@echo "Cleaning up..."
